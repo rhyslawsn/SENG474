@@ -103,4 +103,4 @@ print("Computing accuracy ...")
 for x in range(1,20):
 	naiveBayes(38*x*x,trainDataFileName,trainLabelsFileName,testDataFileName,testLabelsFileName)
 
-print(str(max(accuracyList)) + "%" + " is the highest accuracy.")
+print("The program determined " + str(max(accuracyList)) + "%" + " of the answers correctly.")
