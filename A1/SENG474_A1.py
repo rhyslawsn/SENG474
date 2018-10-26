@@ -94,13 +94,26 @@ def naiveBayes(mostCommonNum,trainDataFileName,trainLabelFileName,testDataFileNa
 	os.remove("labels.txt")
 	testlabelfile.close()
 
-trainDataFileName = input("Please enter the filename of the training data file: ")
-trainLabelsFileName = input("Please enter the filename of the training labels: ")
-testDataFileName = input("Please enter the filename of the test data file: ")
-testLabelsFileName = input("Please enter the filename of the labels data file: ")
+# trainDataFileName = input("Please enter the filename of the training data file: ")
+# trainLabelsFileName = input("Please enter the filename of the training labels: ")
+# testDataFileName = input("Please enter the filename of the test data file: ")
+# testLabelsFileName = input("Please enter the filename of the labels data file: ")
 
-print("Computing accuracy ...")
+# print("Computing accuracy ...")
+
+if os.path.isfile('results.txt'):
+	os.remove('results.txt')
+
+resultsFile = open('results.txt','a')
+
+resultsFile.write("Training Data File: traindata.txt \nTraining Labels File: trainlabels.txt \nTest Data File: traindata.txt \nTest Labels File: trainlabels.txt ")
 for x in range(1,20):
-	naiveBayes(38*x*x,trainDataFileName,trainLabelsFileName,testDataFileName,testLabelsFileName)
+	naiveBayes(38*x*x,'traindata.txt','trainlabels.txt','traindata.txt','trainlabels.txt')
+resultsFile.write("\n\nThe program was " + str(max(accuracyList)) + "%" + " accurate.")
 
-print("The program determined " + str(max(accuracyList)) + "%" + " of the answers correctly.")
+accuracyList = []
+
+resultsFile.write("\n\nTraining Data File: traindata.txt \nTraining Labels File: trainlabels.txt \nTest Data File: testdata.txt \nTest Labels File: testlabels.txt ")
+for x in range(1,20):
+	naiveBayes(38*x*x,'traindata.txt','trainlabels.txt','testdata.txt','testlabels.txt')
+resultsFile.write("\n\nThe program was " + str(max(accuracyList)) + "%" + " accurate.")
