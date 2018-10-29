@@ -1,0 +1,13 @@
+Training Data File: traindata.txt 
+Training Labels File: trainlabels.txt 
+Test Data File: traindata.txt 
+Test Labels File: trainlabels.txt 
+
+The program was 94% accurate.
+
+Training Data File: traindata.txt 
+Training Labels File: trainlabels.txt 
+Test Data File: testdata.txt 
+Test Labels File: testlabels.txt 
+
+The program was 81% accurate.

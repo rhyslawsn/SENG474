@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Author: Rhys Lawson
+# Date: 10/25/2018
+
 X=np.array([
 [1,1.0,1.0],
 [1,0.9,1.0],
@@ -36,7 +39,7 @@ w = np.ones((1,X.shape[1]))
 
 #TODO
 def error(x,y,w):
-	return np.log(1 + np.exp(-y*np.matmul(x,w))) 
+	return np.log(1 + np.exp(-y*np.matmul(x,w.T))) 
 
 #TODO
 def error_mean(X,y,w):
@@ -47,4 +50,14 @@ def error_mean(X,y,w):
 
 	return errorSum / X.shape[0]
 
+#TODO
+def grad(x,y,w):
+    return (x*y)/(1 + np.exp(-y*np.matmul(x,w.T)))
+
+#TODO
+def grad_mean(X,y,w):
+
+    return None
+
 print(error_mean(X,y,w))
+print(grad_mean(X,y,w))
